@@ -1,0 +1,13 @@
+<!-- <h1>Login</h1> -->
+
+
+
+<body>
+    <h3>Login</h3>
+  <form   [formGroup]="profileForm" (ngSubmit)="login()" >      
+       <!-- Attributes in Angular form  -->
+      <input type="text" placeholder="Username"  formControlName="username"     /><br><br>
+      <input type="password" placeholder="Password" formControlName="password"   /><br><br>
+        <button class="button" type="submit">submit</button>
+    </form> 
+</body>  

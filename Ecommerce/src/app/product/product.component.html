@@ -1,0 +1,33 @@
+
+<body>
+    <h3>Product</h3> 
+  <!-- ng form:name[Nggroup]/output event:ngsubmit -->
+  <form   [formGroup]="profileForm"   (ngSubmit)="purchase()" >     
+       <!-- Attributes in Angular form  -->
+      <input type="text" placeholder="Enter id"  formControlName="id"     /><br><br>
+      <input type="text" placeholder="Enter name" formControlName="name"   /><br><br>
+      <input type="text" placeholder="Enter cost" formControlName="cost"   /><br><br>
+      <button class="button" type="submit">submit</button>
+    </form> 
+</body> 
+
+<!-- 
+install:
+  Node -v  18.15
+  Npm -v.  9.5
+  npm install -g @angular/cli
+  Ng v 15.2
+
+create:
+  ng new (project name)Ecommencial->package->app->app.component.ts
+  ng generate component (component name)header->6->app->product->4
+    html->app.modu.ts->product.ts->
+  ng generate class (class name) Product
+    ->return 
+
+run:
+  ng serve -->
+
+
+
+
