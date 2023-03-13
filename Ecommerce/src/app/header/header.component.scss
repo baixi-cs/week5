@@ -9,14 +9,14 @@ body {
  
   overflow: hidden;
   background-color: #3fbfd6;
-  padding: 20px 20px;
+  padding: 20px 70px;
 }
 
 .header a {
   float: left;
   color: black;
   text-align: center;
-  padding: 12px;
+  padding: 20px;
   text-decoration: none;
   font-size: 30px; 
   line-height: 25px;
@@ -26,13 +26,13 @@ body {
 
 
 .header a:hover {
-  background-color: #ddd;
+  background-color: #1512cc;
   color: black;
 }
 
 .header a.active {
-  background-color: dodgerblue;
-  color: white;
+  background-color: rgb(116, 196, 200);
+  color: black;
 }
 
 .header-right {

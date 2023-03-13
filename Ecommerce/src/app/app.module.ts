@@ -30,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     
     HttpClientModule,
+
     AppRoutingModule
   ],
   providers: [],

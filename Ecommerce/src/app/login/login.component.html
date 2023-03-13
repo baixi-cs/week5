@@ -2,6 +2,7 @@
 
 
 
+
 <body>
     <h3>Login</h3>
   <form   [formGroup]="profileForm" (ngSubmit)="login()" >      
@@ -11,3 +12,28 @@
         <button class="button" type="submit">submit</button>
     </form> 
 </body>  
+<h1>this is {{message}}</h1>
+<button class="button" (click)="getalldata()">Get Records</button>
+
+<h1>List of All the data is here</h1>
+<table class="table ">
+    <tr>
+        <th scope="col">#</th>
+    <th>id</th>
+    <th>Name</th>
+    <th>Password</th>
+    <th>Action</th>
+   
+    </tr>
+    <tr *ngFor="let user of users">
+        <th scope="row">#</th>
+        <td>{{ user.id }}</td>
+        <td>{{user.username }}</td>
+        <td>{{user.password }}</td>
+       
+       <td> <button class="btn btn-danger btn-rounded" > Delete User</button></td>
+       <!-- (click)="deleteUser(user.id)" -->
+    </tr>
+
+
+</table>
