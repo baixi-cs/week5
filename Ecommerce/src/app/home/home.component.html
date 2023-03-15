@@ -6,9 +6,73 @@
     </p>
     
     <h3>Know the Brand, Know the Products!</h3>
+    <b>{{ sentence }}</b><br/> 
+    <b>{{ sentence | uppercase}}</b><br/>
+    <b>{{ sentence | lowercase}}</b>
+    
+    <hr>
+
+    <img src="assets/images/33.jpg" alt="Know the Brand, Know the Products!" >
+    <hr>
+    <div *ngIf="100 > 38"> This is home page true  </div>
+
+    <div *ngIf = "mytester()">
+        mytester() value has true value.
+      </div> 
+
+
+      <div *ngIf="2>3">
+        Only render if the *isNeeded* value has true value.
+      </div>
+
+
+      <div *ngIf="isFormSubmitted">
+        Welcome back, friend.
+      </div>
+      <ng-template #loggedOut>
+        Please friend, login.
+      </ng-template>
+      
+      <!-- <tr *ngFor="let hero of heroes">
+        <li>{{hero.name}}</li>
+       </tr> -->
+       <!-- <tr *ngFor="let hero of heroes">
+        <div [ngStyle]="{'background-color':hero.name ==='Batman' ? 'green':'yellow'}">
+          <h3>{{hero.name}}</h3>
+        </div> 
+       </tr>
+      
+         
+       <tr *ngFor="let hero of heroes">
+        <div [ngStyle]="{'background-color':'orange'}">
+          <h3>{{hero.id}}:{{hero.name}}</h3>
+        </div> 
+       </tr> 
+        -->
+
+       <!-- <tr *ngFor="let hero of heroes, index as i" >
+        <td [ngClass]="i % 2 == 0 ? 'red' : 'green'">
+          <h3 >{{i}}--{{hero.id}}:{{hero.name|uppercase}}</h3>
+        </td>  -->
+
+        <tr *ngFor="let i of heroes">
+          <div [ngClass]="i.id % 2 == 0 ? 'red' : 'green'">
+           
+            <H2>{{i.id | percent}} : {{i.name}}</H2>
+          </div>
+          </tr>
+      
+
+       <tr *ngFor="let i of listdata" >
+        <td [ngClass]="i % 2 == 0 ? 'red' : 'green'">
+          <h3 >{{ i }}</h3>
+        </td>
+      <!-- <td [style.color]=" i % 2 == 0 ? 'orange' : 'purple'">{{ i }}</td> -->
+      </tr>
+
+   
     
 
-    <img src="assets/images/33.jpg" alt="Know the Brand, Know the Products!">
-
+      
 </div>
 </body>

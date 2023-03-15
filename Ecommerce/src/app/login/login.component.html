@@ -1,39 +1,89 @@
 <!-- <h1>Login</h1> -->
 
 
-
-
+<!-- <div > </div>
 <body>
-    <h3>Login</h3>
-  <form   [formGroup]="profileForm" (ngSubmit)="login()" >      
-       <!-- Attributes in Angular form  -->
+<h3 *ngIf="!formsubmitted">Login</h3>
+<form   [formGroup]="profileForm" (ngSubmit)="login()" *ngIf="!formsubmitted" >      
+
+  <input type="text" placeholder="Username"  formControlName="username"     /><br><br>
+  <input type="password" placeholder="Password" formControlName="password"   /><br><br>
+    <button class="button" type="submit">submit</button>
+</form>
+
+  <div *ngIf="formsubmitted" class="formsubmitted ">
+    Amazing, We got you credentials
+  </div>
+
+</body>   -->
+<div > 
+  <body>
+    <h3  *ngIf="isFormSubmitted; else loggedOut">Login</h3>
+    <form [formGroup]="profileForm" (ngSubmit)="login()" >      
       <input type="text" placeholder="Username"  formControlName="username"     /><br><br>
       <input type="password" placeholder="Password" formControlName="password"   /><br><br>
-        <button class="button" type="submit">submit</button>
-    </form> 
-</body>  
-<h1>this is {{message}}</h1>
+      <button class="button" type="submit">submit</button>
+    </form>
+  </body>  
+</div>
+
+<h1>{{message}}</h1>
 <button class="button" (click)="getalldata()">Get Records</button>
 
 <h1>List of All the data is here</h1>
 <table class="table ">
-    <tr>
-        <th scope="col">#</th>
+  <tr>
+    <th scope="col">#</th>
     <th>id</th>
     <th>Name</th>
     <th>Password</th>
     <th>Action</th>
-   
-    </tr>
-    <tr *ngFor="let user of users">
-        <th scope="row">#</th>
-        <td>{{ user.id }}</td>
-        <td>{{user.username }}</td>
-        <td>{{user.password }}</td>
-       
-       <td> <button class="btn btn-danger btn-rounded" > Delete User</button></td>
-       <!-- (click)="deleteUser(user.id)" -->
-    </tr>
+  </tr>
+
+  <tr *ngFor="let user of users">
+      <th scope="row">#</th>
+      <td>{{ user.id }}</td>
+      <td>{{user.username }}</td>
+      <td>{{user.password }}</td>
+      
+      <td> <button class="btn btn-danger btn-rounded" > Delete User</button></td>
+      <!-- (click)="deleteUser(user.id)" -->
+  </tr>
+</table> 
 
 
-</table>
+<!-- *Ngif -->
+<!-- <hr>
+<div *ngIf="false">  true*********</div-->
+
+<!-- <div *ngIf="formsubmitted"; >
+Amazing, We got you credentials
+</div> -->
+
+
+
+<div *ngIf="isFormSubmitted">
+  <h1>Welcome back, {{user.username}}</h1>
+</div>
+
+
+<ng-template #loggedOut>
+  <h1>Please login, friend</h1>
+</ng-template>
+
+<!-- <h3>*ngFor example</h3> -->
+<tr *ngFor="let item of listdata">
+  <li>{{item}}</li>
+</tr>
+<tr *ngFor="let item of snacks, index as i">
+  <li>{{i}}--{{item.id}}:{{item.name}}</li>
+</tr>
+<ul>
+  <li *ngFor="let num of listdata, index as i">{{i}}-{{num}}</li>
+</ul>
+<!-- <h3 *ngIf="formsubmitted">Amazing, We got you credentials</h3> -->
+<tr *ngFor="let i of listdata" >
+  <td [ngClass]="i % 2 == 0 ? 'red' : 'green'">{{ i }}</td>
+<td [style.color]=" i % 2 == 0 ? 'orange' : 'purple'">{{ i }}</td>
+</tr>
+

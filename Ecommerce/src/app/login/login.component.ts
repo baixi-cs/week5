@@ -1,17 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginserviceService } from '../loginservice.service';
 import { User } from '../user';
 import { Router }from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
+export class LoginComponent implements OnInit, OnChanges{
+  
+  constructor( private loginService: LoginserviceService, private router: Router) { 
+    console.log("I am on lifecycle construct()");
   }
+
+ 
   get f() {
     return this.profileForm.controls;
   }
@@ -30,8 +35,13 @@ export class LoginComponent implements OnInit {
   message : any;
   info: any;
   user:  User = new User();  //Object create from User class- Entity
- 
+  isFormSubmitted:any;
+  listdata =[1,2,3,4,5,6,7,8,9];
 
+ snacks = [{id:1, name:'apple'},{id:4, name:'kiwi'},{id:2, name:'jelley'},{id:5, name:'chips'}];
+  // getSnack(){
+  //   return this.snacks;
+  // }
 
   login() {
 
@@ -46,6 +56,7 @@ export class LoginComponent implements OnInit {
     // router: new Router();
     this.addUser();
     this.getalldata();
+    this.isFormSubmitted=true;
 
     // this.loginService.getuserList()
     // .subscribe(data => {
@@ -55,9 +66,10 @@ export class LoginComponent implements OnInit {
     // }, error => console.log(error));
 
 
-
   };
-  constructor( private loginService: LoginserviceService, private router: Router) { }
+
+
+ 
 
   getalldata(){
    
@@ -71,7 +83,7 @@ export class LoginComponent implements OnInit {
     }, error => console.log(error));
 
   }
-
+ 
   addUser(){
     // this.loginService.createuserList(this.user)
     // .subscribe(data=>console.log(this.users), error=>console.log(error));
@@ -81,6 +93,7 @@ export class LoginComponent implements OnInit {
     this.message = "record received successfully";
 
     // this.router.navigate(['/home']);
+    // this.isFormSubmitted=true;
 
   }
   
@@ -102,9 +115,19 @@ export class LoginComponent implements OnInit {
   //         }
   //       }
   //     }, error => console.log(error));
-
+ 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("I am on lifecycle change()"); 
+    throw new Error('Method not implemented.');
+  }
   
+  ngOnInit(): void {
+    console.log("I am on lifecycle onInit()");
+    this.isFormSubmitted=false; 
+    throw new Error('Method not implemented.');
+  }
 
+ 
 }
 
 

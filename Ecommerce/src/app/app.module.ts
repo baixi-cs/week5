@@ -11,6 +11,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
+import { LifecycleComponent } from './lifecycle/lifecycle.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,12 @@ import { HttpClientModule } from '@angular/common/http';
     ProductComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+   
+    ParentComponent,
+    ChildComponent,
+   
+    LifecycleComponent
   ],
   imports: [
     BrowserModule,
